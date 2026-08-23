@@ -1,0 +1,82 @@
+# ============================================================
+# Terraform
+# ============================================================
+
+# Terraform working directory
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.*
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# Terraform variable files (may contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# Terraform plan files
+*.tfplan
+*.tfplan.json
+
+# ============================================================
+# Go
+# ============================================================
+
+# Go build output
+/bin/
+/bin/*
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries and coverage
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Go workspace
+go.work
+go.work.sum
+
+# ============================================================
+# IDE / Editor
+# ============================================================
+
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# ============================================================
+# OS / temporary files
+# ============================================================
+
+*.tmp
+*.temp
+*.log
+
+# ============================================================
+# Terraform Provider development
+# ============================================================
+
+# Locally built provider binary
+terraform-provider-governance
+
+# Terraform plugin cache
+.terraform.d/
