@@ -74,10 +74,10 @@ func TestResolvePurpose_CentralizedAuditLogging(t *testing.T) {
 		)
 	}
 
-	if data.CatalogVersion.ValueString() != "1.1" {
+	if data.CatalogVersion.ValueString() != "1.0.1" {
 		t.Fatalf(
 			"expected catalog version %q, got %q",
-			"1.1",
+			"1.0.1",
 			data.CatalogVersion.ValueString(),
 		)
 	}

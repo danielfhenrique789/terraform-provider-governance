@@ -68,7 +68,7 @@ func (d CapabilityDataSource) Read(
 		return
 	}
 
-	data.CatalogVersion = types.StringValue("1.1")
+	data.CatalogVersion = types.StringValue("1.0.1")
 	switch data.Name.ValueString() {
 	case "object-storage":
 		data.Version = types.StringValue("1.0")

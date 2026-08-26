@@ -84,7 +84,7 @@ func NewPurposeDataSource() datasource.DataSource {
 
 func resolvePurpose(name string) (PurposeDataSourceModel, error) {
 	data := PurposeDataSourceModel{
-		CatalogVersion: types.StringValue("1.1"),
+		CatalogVersion: types.StringValue("1.0.1"),
 	}
 
 	switch name {
