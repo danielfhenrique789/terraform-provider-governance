@@ -8,6 +8,7 @@ import (
 	"github.com/danielfhenrique789/terraform-provider-governance/internal/purpose"
 	frameworkresource "github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+	
 )
 
 func TestPurposeResourceConfigure(t *testing.T) {

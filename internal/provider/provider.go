@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/danielfhenrique789/terraform-provider-governance/internal/definitions"
+	"github.com/danielfhenrique789/terraform-provider-governance/internal/provider/datasources"
 	"github.com/danielfhenrique789/terraform-provider-governance/internal/provider/resources"
 	"github.com/google/go-github/v68/github"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
@@ -89,7 +90,11 @@ func (p *GovernanceProvider) Resources(
 func (p *GovernanceProvider) DataSources(
 	ctx context.Context,
 ) []func() datasource.DataSource {
-	return nil
+	return []func() datasource.DataSource{
+		datasources.NewPurposeDataSource,
+		datasources.NewCapabilityDataSource,
+		datasources.NewCapabilityProfileDataSource,
+	}
 }
 
 func (p *GovernanceProvider) Schema(

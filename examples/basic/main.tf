@@ -12,4 +12,5 @@ provider "governance" {
 
 resource "governance_purpose" "audit" {
   name = "centralized_audit_logging"
+  catalog_version = "1.0"
 }
