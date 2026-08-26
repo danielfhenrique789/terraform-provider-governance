@@ -151,6 +151,11 @@ func (r PurposeResource) Read(
 
 	var data PurposeResourceModel
 
+	if req.State.Raw.IsNull() {
+		resp.State.RemoveResource(ctx)
+		return
+	}
+
 	resp.Diagnostics.Append(req.State.Get(ctx, &data)...)
 
 	if resp.Diagnostics.HasError() {
@@ -169,8 +174,11 @@ func (r PurposeResource) Read(
 	resolved, err := catalog.Resolve(data.Name.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Purpose validation failed",
-			err.Error(),
+			"Purpose definition not found",
+			fmt.Sprintf(
+				"The purpose %q referenced by this resource no longer exists in the catalog.",
+				data.Name.ValueString(),
+			),
 		)
 		return
 	}
@@ -193,6 +201,10 @@ func (r PurposeResource) ModifyPlan(
 	}
 
 	var data PurposeResourceModel
+
+	if req.Plan.Raw.IsNull() {
+		return
+	}
 
 	resp.Diagnostics.Append(
 		req.Plan.Get(ctx, &data)...,
@@ -241,6 +253,7 @@ func (r PurposeResource) Delete(
 	req resource.DeleteRequest,
 	resp *resource.DeleteResponse,
 ) {
+	resp.State.RemoveResource(ctx)
 }
 
 func NewPurposeResource() resource.Resource {
