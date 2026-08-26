@@ -14,7 +14,7 @@ func TestResolveCapabilityProfile(t *testing.T) {
 		expectedSubstring string
 	}{
 		"object storage compliance archive": {
-			capability:        "object-storage",
+			capability:        "object_storage",
 			profile:           "compliance_archive",
 			expectedVersion:   "1.0",
 			expectedService:   "s3",
@@ -85,7 +85,7 @@ func TestResolveCapabilityProfileUnknownCapability(t *testing.T) {
 
 func TestResolveCapabilityProfileUnknownProfile(t *testing.T) {
 	_, _, _, err := resolveCapabilityProfile(
-		"object-storage",
+		"object_storage",
 		"unknown-profile",
 	)
 
