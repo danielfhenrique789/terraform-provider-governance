@@ -73,7 +73,7 @@ func (d CapabilityProfileDataSource) Read(
 	data.CatalogVersion = types.StringValue("1.0.1")
 
 	switch data.Capability.ValueString() {
-	case "object-storage":
+	case "object_storage":
 		data.Version = types.StringValue("1.0")
 		data.Service = types.StringValue("s3")
 
@@ -207,7 +207,7 @@ func resolveCapabilityProfile(
 	profile string,
 ) (version string, service string, configuration string, err error) {
 	switch capability {
-	case "object-storage":
+	case "object_storage":
 		version = "1.0"
 		service = "s3"
 
